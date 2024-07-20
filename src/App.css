@@ -3,11 +3,13 @@
   flex-direction: column;
 }
 
+.header{
+  height: 50px;
+}
 .main{
-  margin-top:100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 120px; */
+  margin-top: 50px;
 }

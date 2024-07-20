@@ -17,6 +17,9 @@
     width: 100%;
 }
 
+.error_css{
+    color: red;
+}
 
 .input {
     margin-top: 10px;

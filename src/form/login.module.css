@@ -1,8 +1,7 @@
 .container {
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     background-color:var(--white-color);
 
@@ -28,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px;
+    /* padding: 80px; */
 }
 .login_div{
     width: 425px;
@@ -88,7 +87,6 @@
         display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh;
     }
     .right_side {
        display: none;
