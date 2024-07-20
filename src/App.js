@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import ModulariseFromikForm from './form/FormikForm';
+import Navbar from './navbar/navbar';
+import FormWithFormik from './form/formwithFromik';
+import FormWithFormikYup from './form/formWithYupFormik';
+import ReactHookForm from './form/reactHookForm';
+import { BrowserRouter as Router ,Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Router>
+          <div className='header'>
+              <Navbar/>
+          </div>
+          <div className='main'>
+            <Routes>
+              <Route path="/" element={<ModulariseFromikForm/>} />
+              <Route path="/formWithFormik" element={<FormWithFormik/>} /> 
+              <Route path="/formWithFormikYup" element={<FormWithFormikYup/>} />   
+              <Route path="/signup-react-hook-form" element={<ReactHookForm/>} />            
+            </Routes>
+          </div>
+          </Router>
+     
+
+  </div>
   );
 }
 
