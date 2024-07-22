@@ -2,6 +2,9 @@ import React from 'react';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 import styles from "./formik.module.css";
+import { AllUserContext } from '../context/allUserContext';
+import { useContext } from 'react';
+import Users from "../users/users";
 const MyTextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input>. We can use field meta to show an error
@@ -52,9 +55,15 @@ const MySelect = ({ label, ...props }) => {
 
 // And now we can use these
 const SignupForm = () => {
-  return (
+
+  const {addUsers} = useContext(AllUserContext);
+  const [count,setCount] = React.useState(0);
+
+  return  (
     <>
-      <h1>Subscribe!</h1>
+    <h1>Add User </h1>
+    <h2>Count : {count} </h2>
+    <button onClick={()=>setCount(count+1)}> increase</button>
       <Formik
         initialValues={{
           firstName: '',
@@ -84,10 +93,11 @@ const SignupForm = () => {
             .required('Required'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          addUsers(values);
+            setTimeout(() => {            
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 1000);
         }}
       >
         <Form className={styles.form_div}>
@@ -128,6 +138,7 @@ const SignupForm = () => {
           <button className={styles.submit_button} type="submit">Submit</button>
         </Form>
       </Formik>
+      <Users/>
     </>
   );
 };

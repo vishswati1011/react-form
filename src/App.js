@@ -6,6 +6,7 @@ import FormWithFormik from './form/formwithFromik';
 import FormWithFormikYup from './form/formWithYupFormik';
 import ReactHookForm from './form/reactHookForm';
 import { BrowserRouter as Router ,Routes, Route } from 'react-router-dom';
+import {AllUserProvider} from './context/allUserContext';
 
 function App() {
   return (
@@ -15,14 +16,16 @@ function App() {
           <div className='header'>
               <Navbar/>
           </div>
+          <AllUserProvider>
           <div className='main'>
             <Routes>
               <Route path="/" element={<ModulariseFromikForm/>} />
               <Route path="/formWithFormik" element={<FormWithFormik/>} /> 
               <Route path="/formWithFormikYup" element={<FormWithFormikYup/>} />   
-              <Route path="/signup-react-hook-form" element={<ReactHookForm/>} />            
+              <Route path="/signup-react-hook-form" element={<ReactHookForm/>} />  
             </Routes>
           </div>
+          </AllUserProvider>
           </Router>
      
 
